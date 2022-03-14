@@ -1,0 +1,21 @@
+Consumer Car Care
+<p>
+    <a href="{% url 'c3_app:index'%}">Main</a> -   
+    <a href="{% url 'c3_app:topics'%}">Claims</a> - 
+    
+    
+       
+    <p>
+        {% if user.is_authenticated %}
+        Welcome back, {{ user.username }} - 
+        <a href="{% url 'users:logout' %}">Log out</a>
+        {% else %}
+            <a href="{% url 'users:register' %}">Register</a> -
+            <a href="{% url 'users:login' %}">Log in</a>
+        {% endif %}
+    </p>    
+   
+</p>
+
+{% block content %} 
+{% endblock content %}
