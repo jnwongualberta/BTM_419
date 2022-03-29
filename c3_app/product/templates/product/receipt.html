@@ -1,0 +1,23 @@
+{% extends 'product/base.html'%} 
+{% block content%}
+<br></br>
+
+<div class="container">
+  <h1 class = "text-black text-center" 
+  style = "color: #f7900ada">
+  SALES REPORT
+  </h1>
+  <br></br>
+  {% for sale in sales %}
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">Customer : {{sale.issued_to | title}}</h3>
+      <h6 class="card-text">Item : {{sale.item}}</h6>
+      <h6 class="card-text">Quantity: {{sale.quantity }}</h6>
+    </div>
+  </div>
+  <br/>
+  {% endfor %}
+</div>
+{% endblock %} 
+ 

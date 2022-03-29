@@ -1,0 +1,85 @@
+{% extends 'product/base.html'%}
+{% block content%}
+<br></br>
+
+{% if user.is_authenticated%}
+<div class = "container">
+  <h1 
+    class= "text-center"
+    class = "text-black text-center" 
+    style = "color: #f7900ada"> 
+    INVENTORY
+  </h1>
+
+  <br></br>
+
+  <div class = "container">
+    <form action = "" method = "GET">
+      {{product_filters.form}}
+      <input 
+      type = "submit"
+      value = "Search Products"
+      class="btn btn-secondary btn btn-warning"
+      />
+    </form>
+  </div>
+  <br>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope = "col">Detail</th>
+      </tr>
+    </thead>
+
+    {% for product in products%}
+    <tbody>
+      <tr> 
+        <td>{{product.category_name}}</td>
+        <td>{{product.item_name}}</td>
+        <td>{{product.total_quantity}}</td>
+        <td>
+          <a href="{% url 'product:issue_item' product.id %}" >
+            <input 
+            type="submit" 
+            value="Order" 
+            class="btn btn-secondary btn btn-warning" 
+            btn type="button"
+            />
+          </a>
+          <a href="{% url 'product:add_to_inventory' product.id %}" >
+            <input 
+            type= "submit" 
+            value="Add to Inventory" 
+            class="btn btn-secondary btn btn-warning" 
+            type="button"
+            />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  {% else %} 
+  <br>
+  <br>
+  <h1 
+    class= "text-center"
+    class = "text-black text-center" 
+    style = "font-size: 60px;  color: #f7900ada"> Welcome!
+  </h1>
+
+  <h2 
+    class= "text-center"
+    class = "text-black text-center" 
+    style = "font-size: 30px;  color: #f7900ada">
+    Please login or register to gain access to our products and services.
+  </h2>
+
+  {% endif %}
+
+</div>
+{% endblock%}

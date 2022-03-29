@@ -1,0 +1,47 @@
+{% extends 'product/base.html'%}
+{% block content%}
+<br></br>
+
+{%for product in products%}
+{% if product.total_quantity <  2 %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  {{product.item_name}} inventory is low!
+</div>
+{%endif%}
+{% endfor %}
+
+<div class = "container">
+  <h1 
+    class= "text-center"
+    class = "text-black text-center" 
+    style = "color: #f7900ada"> 
+    INVENTORY REPORT
+  </h1>
+
+  <br></br>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Quanity Added (+)</th>
+        <th scope="col">Quantity Issued (-)</th>
+        <th scope = "col">Total Quanity</th>
+      </tr>
+    </thead>
+    {% for product in products%}
+    {% if product.received_quantity > 0 or product.received_quantity > 0 %}
+    <tbody>
+      <tr> 
+        <td>{{product.item_name}}</td>
+        <td>{{product.received_quantity}}</td>
+        <td>{{product.issued_quantity}}</td>
+        <td>{{product.total_quantity}}</td>
+      </tr>
+    </tbody>
+    {%endif%}
+    {% endfor %}
+  </table> 
+</div>
+{% endblock%}
