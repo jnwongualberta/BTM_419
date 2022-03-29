@@ -1,0 +1,23 @@
+{% extends 'product/base.html'%} 
+{% load crispy_forms_tags%} 
+{% load static %}
+{% block content%}
+<br><br/>
+<div class="container">
+  <form method="POST" action = "">
+  <h1 
+    class = "text-black text-center" 
+    style = "color: #f7900ada">
+    INVENTORY FORM
+  </h1>
+    <br>
+    {% csrf_token %} 
+    {{form | crispy}}
+    <input 
+    type = "submit" 
+    class="btn btn-secondary btn btn-warning"
+    type="button"
+    >
+  </form>
+</div>
+{% endblock %}
