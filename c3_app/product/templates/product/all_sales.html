@@ -3,10 +3,15 @@
 <br></br>
 
 {%for product in products%}
-{% if product.total_quantity <  2 %}
-<div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-  {{product.item_name}} inventory is low!
+{% if product.total_quantity <  5 %}
+<div class="container-fluid p-0">
+  <div class="alert  alert-dismissible" role="alert" style="color: rgb(255, 0, 0)" >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" class = "text-black text-center" 
+    style = "color: #f72a0ada">
+      <span aria-hidden="True">&times;</span>
+    </button>
+    {{product.item_name}} inventory is low!
+  </div>
 </div>
 {%endif%}
 {% endfor %}
@@ -16,7 +21,7 @@
     class= "text-center"
     class = "text-black text-center" 
     style = "color: #f7900ada"> 
-    INVENTORY REPORT
+    RECENT TRANSACTION
   </h1>
 
   <br></br>
@@ -25,13 +30,13 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">Product Name</th>
-        <th scope="col">Quanity Added (+)</th>
-        <th scope="col">Quantity Issued (-)</th>
-        <th scope = "col">Total Quanity</th>
+        <th scope="col">Quanity Added to Inventory (+)</th>
+        <th scope="col">Quantity Issued to Dealerships (-)</th>
+        <th scope = "col">Total Quanity at C3</th>
       </tr>
     </thead>
     {% for product in products%}
-    {% if product.received_quantity > 0 or product.received_quantity > 0 %}
+    {% if product.issued_quantity > 0 or product.received_quantity > 0 %}
     <tbody>
       <tr> 
         <td>{{product.item_name}}</td>

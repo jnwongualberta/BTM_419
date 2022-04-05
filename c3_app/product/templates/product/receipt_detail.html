@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-header">
           <h1 class="text-center">ORDER SUMMARY</h1><br>
-          <h2 class="lead">Customer Name: {{receipt.issued_to | title}}</h2>
+          <h2 class="lead">Customer Name: {{receipt.car_dealership | title}}</h2>
         </div>
         <div class="card-block">
           <div class="table-responsive">
@@ -24,6 +24,18 @@
                 <tr>
                   <td>{{receipt.item| title}}</td>
                   <td class="text-xs-center">{{receipt.quantity }}</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <a href="{% url 'product:receipt' %}" >
+                    <input 
+                    type="submit" 
+                    value="Email Order Form To Dealership" 
+                    class="btn btn-secondary btn btn-warning" 
+                    btn type="button"
+                    />
+                  </a>
                 </tr>
               </tbody>
             </table>
