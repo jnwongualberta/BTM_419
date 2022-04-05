@@ -1,0 +1,38 @@
+{% extends "product/base.html" %}
+
+{% block content %}
+<br><br/>
+<style>
+   .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+  }
+    </style>
+
+<div>
+    <h1 
+        class= "text-center"
+        class = "text-black text-center" 
+        style = "color: #f7900ada"> 
+        CURRENT INVENTORY LEVELS AT DEALERSHIPS
+    </h1>
+        <br>
+        <div class = "container">
+            <a href="{% url 'product:receipt'%}">
+          <input 
+          type="submit" 
+          value="Recent Dealerships Orders" 
+          class="btn btn-secondary btn btn-warning" 
+          btn type="button"
+          />
+        </div>
+
+    <div 
+        class="center" >       <img src="data:image/png;base64,{{image_base64}}"
+        alt="chart"  width=700 height=auto />
+    </div>
+
+</div>  
+{% endblock content %}

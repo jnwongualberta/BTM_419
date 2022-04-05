@@ -5,26 +5,16 @@
     class= "text-center"
     class = "text-black text-center" 
     style = "color: #f7900ada"> 
-    INVENTORY
+    WARRANTY
   </h1>
-  
-  <div class = "container">
-    <form action = "" method = "GET">
-      {{product_filters.form}}
-      <input 
-      type = "submit"
-      value = "Search Products"
-      class="btn btn-secondary btn btn-warning"
-      />
-    </form>
-  </div>
+
   <br><br>
 
   <div class = "container">
     <a href="{% url 'product:add_new_inventory'%}">
       <input 
       type="submit" 
-      value="Add New Inventory" 
+      value="Add New Warranty" 
       class="btn btn-secondary btn btn-warning" 
       btn type="button"
       />
@@ -32,7 +22,7 @@
     <a href="{% url 'product:add_category'%}">
       <input 
       type="submit" 
-      value="Add New Item Category" 
+      value="Submit a Claim" 
       class="btn btn-secondary btn btn-warning" 
       btn type="button"
       />
@@ -46,10 +36,10 @@
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Category</th>
-        <th scope="col">Product</th>
-        <th scope="col">Quantity</th>
-        <th scope = "col">Detail</th>
+        <th scope="col">Product Category</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Numbers of Warranty</th>
+        <th scope = "col">Claims Status</th>
       </tr>
     </thead>
 
@@ -63,7 +53,7 @@
           <a href="{% url 'product:issue_item' product.id %}" >
             <input 
             type="submit" 
-            value="Order for car dealership" 
+            value="View all Warranty for Product" 
             class="btn btn-secondary btn btn-warning" 
             btn type="button"
             />
@@ -71,7 +61,7 @@
           <a href="{% url 'product:add_to_inventory' product.id %}" >
             <input 
             type= "submit" 
-            value="Add to Inventory" 
+            value="Edit Warranty Detail" 
             class="btn btn-secondary btn btn-warning" 
             type="button"
             />
@@ -79,7 +69,7 @@
           <a href="{% url 'product:edit_inventory' product.id %}" >
             <input 
             type="submit" 
-            value="Edit Inventory" 
+            value="Transfer Ownership of Warranty" 
             class="btn btn-secondary btn btn-warning" 
             btn type="button"
             />

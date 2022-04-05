@@ -1,0 +1,8 @@
+{% extends "product/base.html" %} 
+{% block content %}
+{{ Edit warranty entry }}
+
+Edit entry:
+
+{% csrf_token %} {{ form.as_p }}  Save changes
+{% endblock content %}

@@ -1,0 +1,8 @@
+{% extends "product/base.html" %} 
+{% block content %}
+{{ Make a new entry }}
+
+Add a new entry:
+
+{% csrf_token %} {{ form.as_p }}  Add entry
+{% endblock content %}

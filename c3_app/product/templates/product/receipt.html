@@ -5,16 +5,35 @@
 <div class="container">
   <h1 class = "text-black text-center" 
   style = "color: #f7900ada">
-  SALES REPORT
+  RECENT PRODUCTS ORDER BY CAR DEALERSHIPS
   </h1>
+  
+
   <br></br>
   {% for sale in sales %}
   <div class="card">
     <div class="card-body">
-      <h3 class="card-title">Customer : {{sale.issued_to | title}}</h3>
+      <h3 class="card-title">Customer : {{sale.car_dealership| title}}</h3>
       <h6 class="card-text">Item : {{sale.item}}</h6>
       <h6 class="card-text">Quantity: {{sale.quantity }}</h6>
+      <a href="{% url 'product:edit_receipt' sale.id %}" >
+        <input 
+        type="submit" 
+        value="Edit Order" 
+        class="btn btn-secondary btn btn-warning" 
+        btn type="button"
+        />
+      </a>
+      <a href="{% url 'product:receipt_detail' sale.id %}" >
+        <input 
+        type="submit" 
+        value="Review Order" 
+        class="btn btn-secondary btn btn-warning" 
+        btn type="button"
+        />
+      </a>
     </div>
+    
   </div>
   <br/>
   {% endfor %}

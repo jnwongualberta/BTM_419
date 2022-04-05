@@ -1,4 +1,4 @@
-html,body {
+html, body {
     position: relative;
     overflow-x: hidden;
     width: 100%;
@@ -30,15 +30,16 @@ form {
 }
 
 .navbar li a {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .navbar-brand {
-    font-size: 30px;
+    font-size: 20px;
 }
 
-@media(max-width: 767px){
+@media(max-width: 480px){
     form { 
         width: 90%;
     }
 }
+

@@ -1,0 +1,57 @@
+{% extends 'product/base.html'%}
+{% block content%}
+<div>
+  <br></br>
+
+  {% if user.is_authenticated%}
+  <div class = "container">
+    <h1 
+      class= "text-center"
+      class = "text-black text-center" 
+      style = "color: #f7900ada"> 
+      Welcome back, {{user.username}}
+    </h1>
+
+    <br>
+    <button 
+    type="button" class="btn btn-warning btn-block">
+      <a href="{% url 'product:inventory'%}" >INVENTORY</a>
+    </button>
+  
+    <br>
+    <button 
+     type="button" class="btn btn-warning btn-block">
+      <a href="{% url 'product:salesPlot'%}" >DEALERSHIPS INVENTORY REPORT</a>
+    </button>
+
+    <br>
+    <button 
+     type="button" class="btn btn-warning btn-block">
+      <a href="{% url 'product:plot'%}" >C3 INVENTORY REPORT</a>
+    </button>
+
+    <br>
+    <button 
+      type="button" class="btn btn-warning btn-block">
+      <a href="{% url 'product:warranty_homepage'%}" >WARRANTY</a>
+    </button>
+    
+    {% else %} 
+    <br>
+    <br>
+    <h1 
+      class= "text-center"
+      class = "text-black text-center" 
+      style = "font-size: 60px;  color: #f7900ada"> Welcome!
+    </h1>
+  
+    <h2 
+      class= "text-center"
+      class = "text-black text-center" 
+      style = "font-size: 30px;  color: #f7900ada">
+      Please login or register to gain access to our products and services.
+    </h2>
+  {% endif %}
+  </div>
+</div>
+{% endblock%}

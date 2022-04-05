@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django_filters',
     'users',
     'crispy_forms',
+
+    
    
     #--------------------------------------------
     'django.contrib.admin',
